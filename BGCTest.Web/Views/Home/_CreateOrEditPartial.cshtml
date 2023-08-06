@@ -1,0 +1,99 @@
+﻿@using BGCTest.Web.Helpers;
+@{
+    string currentDate = DateTime.Now.ToGBDateString("yyyy-MM-dd");
+}
+
+<div class="my-2">
+    <button id="btnBack" type="button" class="btn btn-sm btn-outline-dark">
+        <i class="fa-solid fa-angles-left"></i> Back
+    </button>
+</div>
+
+<div id="alertErrorSave" class="my-3 d-none">
+    <div class="alert alert-danger" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <label id="errorMessageSave"></label>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h4>Create/Edit Form</h4>
+    </div>
+    <div class="card-body">
+        <form id="formCreateOrEdit">
+            <input id="hfId" type="hidden" value="" />
+            <input id="hfCurrentDate" type="hidden" value="@currentDate" />
+            <div class="row my-2">
+                <div class="col-md-2">
+                    <label class="form-label required">Order Date</label>
+                </div>
+                <div class="col-md-10">
+                    <div class="input-group date">
+                        <input id="OrderDate" type="text" class="form-control" value="@currentDate" required />
+                        <span class="input-group-text input-group-addon"><i class="fa-regular fa-calendar-days"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-2">
+                    <label class="form-label required">Region</label>
+                </div>
+                <div class="col-md-10">
+                    <select id="Region" class="form-select" asp-items="@WebHelpers.SelectItemRegions" required>
+                        <option value="">== Select item ==</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-2">
+                    <label class="form-label required">City</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="City" class="form-control" type="text" value="" required />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col-md-2">
+                    <label class="form-label required">Category</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="Category" class="form-control" type="text" value="" required />
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-2">
+                    <label class="form-label required">Product</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="Product" class="form-control" type="text" value="" required />
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-2">
+                    <label class="form-label required">Quantity</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="Quantity" type="number" class="form-control" value="0" required />
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col-md-2">
+                    <label class="form-label required">Unit Price</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="UnitPrice" name="UnitPrice" type="number" class="form-control" value="0" step="any" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-2 col-md-10">
+                    <button id="btnSave" type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Save
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

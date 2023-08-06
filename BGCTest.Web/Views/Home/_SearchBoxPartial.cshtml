@@ -1,0 +1,148 @@
+﻿@using BGCTest.Web.Helpers;
+@{
+    ViewData["Title"] = "Food Sale";
+    string fromDate = WebHelpers.FirstDate().ToGBDateString("dd/MM/yyyy");
+    string toDate = DateTime.Now.ToGBDateString("dd/MM/yyyy");
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4>Search</h4>
+    </div>
+    <div class="card-body">
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Order Date(From)</label>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group date">
+                    <input id="SearchFromOrderDate" type="text" class="form-control" value="" />
+                    <span class="input-group-text input-group-addon"><i class="fa-regular fa-calendar-days"></i></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Order Date(To)</label>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group date">
+                    <input id="SearchToOrderDate" type="text" class="form-control" value="" />
+                    <span class="input-group-text input-group-addon"><i class="fa-regular fa-calendar-days"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Region</label>
+            </div>
+            <div class="col-md-4">
+                <input id="SearchRegion" class="form-control" type="text" value="" />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">City</label>
+            </div>
+            <div class="col-md-4">
+                <input id="SearchCity" class="form-control" type="text" value="" />
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Category</label>
+            </div>
+            <div class="col-md-4">
+                <input id="SearchCategory" class="form-control" type="text" value="" />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Product</label>
+            </div>
+            <div class="col-md-4">
+                <input id="SearchProduct" class="form-control" type="text" value="" />
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Quantity</label>
+            </div>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-text">Min</span>
+                    <input id="SearchQuantityMin" type="number" class="form-control" placeholder="Min value, Simple : 1" />
+                    <span class="input-group-text">Max</span>
+                    <input id="SearchQuantityMax" type="number" class="form-control" placeholder="Max value, Simple : 10" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Unit Price</label>
+            </div>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-text">Min</span>
+                    <input id="SearchUnitPriceMin" type="number" class="form-control" placeholder="Min value, Simple : 1" />
+                    <span class="input-group-text">Max</span>
+                    <input id="SearchUnitPriceMax" type="number" class="form-control" placeholder="Max value, Simple : 10" />
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Total Price</label>
+            </div>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-text">Min</span>
+                    <input id="SearchTotalPriceMin" type="number" class="form-control" placeholder="Min value, Simple : 1" />
+                    <span class="input-group-text">Max</span>
+                    <input id="SearchTotalPriceMax" type="number" class="form-control" placeholder="Max value, Simple : 10" />
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Sort Type</label>
+            </div>
+            <div class="col-md-4">
+                <select id="SortType" class="form-select">
+                    <option value="Asc" selected>Ascending</option>
+                    <option value="Desc">Descending</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Sort Columns</label>
+            </div>
+            <div class="col-md-4">
+                <select id="SortColumn" class="form-select"></select>
+                <small class="text-body-secondary">
+                    <b>Remark</b> : Sort column from database
+                </small>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-2">
+                <label class="form-label">Rows Limit</label>
+            </div>
+            <div class="col-md-4">
+                <select id="RowLimit" class="form-select">
+                    <option value="50" selected>50</option>
+                    <option value="100">100</option>
+                    <option value="250">250</option>
+                    <option value="500">500</option>
+                    <option value="1000">1,000</option>
+                    <option value="1500">1,500</option>
+                    <option value="2000">2,000</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-2 col-md-10">
+                <button id="btnSearch" type="button" class="btn btn-sm btn-outline-primary">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
