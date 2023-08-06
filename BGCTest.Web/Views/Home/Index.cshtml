@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Food Sale";
+}
+
+<div id="contentCreateOrEdit" class="container d-none">
+    <partial name="_CreateOrEditPartial.cshtml" />
+</div>
+
+<div id="searchTableContent">
+    <div class="my-3">
+        <button id="btnCreateNew" class="btn btn-outline-success">
+            <i class="fa-solid fa-square-plus"></i> Create New
+        </button>
+    </div>
+    <div class="my-3">
+        <partial name="_SearchBoxPartial.cshtml" />
+    </div>
+
+    <div class="alert alert-light my-3" role="alert">
+        <b>Remark</b> : The number of data rows displayed depends on 'Rows Limit'
+    </div>
+
+    <div id="alertErrorSearch" class="my-3 d-none">
+        <div class="alert alert-danger" role="alert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <label id="errorMessageSearch"></label>
+        </div>
+    </div>
+
+    <table id="tableItems" class="table table-hover table-bordered" style="width:100%">
+        <thead>
+            <tr class="table-light">
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>Order Date</td>
+                <td>Region</td>
+                <td>City</td>
+                <td>Category</td>
+                <td>Product</td>
+                <td>Quantity</td>
+                <td>Unit Price</td>
+                <td>Total Price</td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/foodsale.js" asp-append-version="true"></script>
+}
